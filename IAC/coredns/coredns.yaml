@@ -1,0 +1,39 @@
+apiVersion: v1
+data:
+  Corefile: |
+    .:53 {
+        errors
+        health
+        ready
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+          pods insecure
+          ttl 30
+          fallthrough in-addr.arpa ip6.arpa
+        }
+        prometheus :9153
+        forward . /etc/resolv.conf
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+    websafe.local:53 {
+        errors
+        cache 30
+        forward . 166.70.98.174
+    }  
+kind: ConfigMap
+metadata:
+  annotations:
+    k0s.k0sproject.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"Corefile":".:53 {\n    errors\n    health\n    ready\n    kubernetes cluster.local in-addr.arpa ip6.arpa {\n      pods insecure\n      ttl 30\n      fallthrough in-addr.arpa ip6.arpa\n    }\n    prometheus :9153\n    forward . /etc/resolv.conf\n    cache 30\n    loop\n    reload\n    loadbalance\n}\n"},"kind":"ConfigMap","metadata":{"name":"coredns","namespace":"kube-system"}}
+    k0s.k0sproject.io/stack-checksum: df0a18b174e12f166824f894f447d08f
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"Corefile":".:53 {\n    errors\n    health\n    ready\n    kubernetes cluster.local in-addr.arpa ip6.arpa {\n      pods insecure\n      ttl 30\n      fallthrough in-addr.arpa ip6.arpa\n    }\n    prometheus :9153\n    forward . /etc/resolv.conf\n    cache 30\n    loop\n    reload\n    loadbalance\n}\n"},"kind":"ConfigMap","metadata":{"annotations":{"k0s.k0sproject.io/last-applied-configuration":"{\"apiVersion\":\"v1\",\"data\":{\"Corefile\":\".:53 {\\n    errors\\n    health\\n    ready\\n    kubernetes cluster.local in-addr.arpa ip6.arpa {\\n      pods insecure\\n      ttl 30\\n      fallthrough in-addr.arpa ip6.arpa\\n    }\\n    prometheus :9153\\n    forward . /etc/resolv.conf\\n    cache 30\\n    loop\\n    reload\\n    loadbalance\\n}\\n\"},\"kind\":\"ConfigMap\",\"metadata\":{\"name\":\"coredns\",\"namespace\":\"kube-system\"}}\n","k0s.k0sproject.io/stack-checksum":"df0a18b174e12f166824f894f447d08f"},"creationTimestamp":"2023-06-20T21:21:20Z","labels":{"k0s.k0sproject.io/stack":"coredns"},"name":"coredns","namespace":"kube-system","resourceVersion":"2979315","uid":"f42ede6d-15d2-4fad-9bb2-1c0cc27a2931"}}
+  creationTimestamp: "2023-06-20T21:21:20Z"
+  labels:
+    k0s.k0sproject.io/stack: coredns
+  name: coredns
+  namespace: kube-system
+  resourceVersion: "2981278"
+  uid: f42ede6d-15d2-4fad-9bb2-1c0cc27a2931
