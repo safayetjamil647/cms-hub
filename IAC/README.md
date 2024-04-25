@@ -1,10 +1,9 @@
-## Websitesafeguard - Make Saas Deployment Scalable
-### Ready to use public cloud for your saas application 
+## Build Your SAAS Component Faster - Make Saas Deployment Scalable
+### Ready to use public cloud component for your saas application 
 
 
 ## Author
 
-- [ Jacob Billings ](https://github.com/Websitesafguard)
 - [ Kazi Safayet Jamil ](https://www.github.com/safayetjamil647)
 
 
@@ -15,6 +14,7 @@
  - Python
  - Wordpress
  - Automation
+ - Database
 
 
 ## Features
